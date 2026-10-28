@@ -1,0 +1,6 @@
+@use '../index' as ui;
+
+.ui-container { @include ui.container; }
+.ui-grid { @include ui.grid; }
+.ui-stack { @include ui.stack; }
+.ui-section { @include ui.section-space; }

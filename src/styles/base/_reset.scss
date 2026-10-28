@@ -1,0 +1,8 @@
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p { margin: 0; }
+button, input, textarea, select { font: inherit; }
+button, input, textarea { border-radius: 0; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+button { cursor: pointer; }

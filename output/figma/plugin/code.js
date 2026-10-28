@@ -1,0 +1,1 @@
+(async()=>{const page=await figma.getNodeByIdAsync('131:2406');await figma.setCurrentPageAsync(page);const home=await figma.getNodeByIdAsync('134:5009');page.selection=[home];figma.viewport.scrollAndZoomIntoView([home.children[1]]);figma.closePlugin('Продуктовый макет, UI Kit и айдентика готовы.');})()

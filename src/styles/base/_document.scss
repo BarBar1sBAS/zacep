@@ -1,0 +1,23 @@
+@use '../index' as ui;
+
+html { color-scheme: light; }
+body {
+  @include ui.typography(body);
+  background: ui.color(surface-canvas);
+  color: ui.color(text-primary);
+  overflow-wrap: anywhere;
+}
+a { color: inherit; }
+:where(a, button, input, textarea, select, summary):focus-visible { @include ui.focus-ring; }
+::selection { background: ui.color(action-primary); color: ui.color(text-primary); }
+.ui-visually-hidden { @include ui.visually-hidden; }
+.ui-skip-link {
+  position: fixed;
+  inset-block-start: ui.space(8);
+  inset-inline-start: ui.space(8);
+  z-index: 10;
+  padding: ui.space(12);
+  background: ui.color(action-primary);
+  transform: translateY(-200%);
+  &:focus { transform: none; }
+}

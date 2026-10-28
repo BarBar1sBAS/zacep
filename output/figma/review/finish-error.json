@@ -1,0 +1,1 @@
+"Error: in get_mainComponent: Cannot call with documentAccess: dynamic-page. Use node.getMainComponentAsync instead."

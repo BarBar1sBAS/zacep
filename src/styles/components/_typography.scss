@@ -1,0 +1,8 @@
+@use '../index' as ui;
+
+@each $name in (h1, h2, h3, body, control, label, caption) {
+  .ui-#{$name} { @include ui.typography($name); }
+}
+.ui-h1, .ui-h2, .ui-h3 { text-wrap: balance; }
+.ui-body { max-width: 70ch; text-wrap: pretty; }
+.ui-text-secondary { color: ui.color(text-secondary); }

@@ -1,0 +1,42 @@
+@use '../index' as ui;
+
+.ui-button {
+  @include ui.control-base;
+  @include ui.typography(button);
+  @include ui.transition(transform, background-color, color, border-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ui.space(12);
+  min-height: ui.token(size, button);
+  min-width: ui.token(size, touch-min);
+  padding: ui.space(16);
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--primary { background: ui.color(action-primary); }
+  &--secondary { background: ui.color(surface-canvas); }
+  &--link { border-color: transparent; background: transparent; }
+
+  &:hover:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']),
+  &:active:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']) {
+    background: ui.color(surface-inverse);
+    color: ui.color(text-inverse);
+  }
+  &--link:hover:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']),
+  &--link:active:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']) {
+    color: ui.color(text-primary);
+    background: transparent;
+    text-decoration: underline;
+    text-underline-offset: ui.space(4);
+  }
+  &:active:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']) { transform: translateY(1px); }
+  &:focus-visible { @include ui.focus-ring; }
+  &:disabled, &[aria-disabled='true'], &[aria-busy='true'] {
+    background: ui.color(surface-disabled);
+    color: ui.color(text-secondary);
+    cursor: not-allowed;
+  }
+  &[aria-busy='true'] { cursor: progress; }
+}

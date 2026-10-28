@@ -1,0 +1,85 @@
+@use 'sass:map';
+@use '../tokens/maps' as t;
+@use 'functions' as f;
+
+@mixin from($name) {
+  @media (min-width: f.breakpoint($name)) { @content; }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+@mixin typography($name) {
+  $style: f.lookup(t.$type, $name, 'typography');
+  font-family: var(--ui-type-#{$name}-family);
+  font-weight: var(--ui-type-#{$name}-weight);
+  font-size: var(--ui-type-#{$name}-size);
+  line-height: var(--ui-type-#{$name}-line);
+  letter-spacing: var(--ui-type-#{$name}-tracking);
+}
+
+@mixin container {
+  width: 100%;
+  max-width: f.token(size, content-max);
+  margin-inline: auto;
+  padding-inline: var(--ui-layout-gutter);
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ui-layout-columns), minmax(0, 1fr));
+  gap: var(--ui-layout-gap);
+}
+
+@mixin stack($gap: 16) {
+  display: flex;
+  flex-direction: column;
+  gap: f.space($gap);
+}
+
+@mixin section-space { padding-block: var(--ui-layout-section); }
+
+@mixin focus-ring {
+  outline: f.token(border, strong) solid f.color(focus-ring);
+  outline-offset: f.token(border, strong);
+}
+
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: f.token(motion, standard);
+  transition-timing-function: f.token(motion, easing);
+  @include reduced-motion { transition-duration: 0ms; }
+}
+
+@mixin control-base {
+  @include typography(control);
+  border: f.token(border, thin) solid f.color(border-default);
+  border-radius: f.token(radius, square);
+  background: f.color(surface-canvas);
+  color: f.color(text-primary);
+}
+
+@mixin control-states {
+  &:hover:not(:disabled):not([aria-disabled='true']) { border-color: f.color(text-secondary); }
+  &:focus { border-width: f.token(border, strong); }
+  &:focus-visible { @include focus-ring; }
+  &[aria-invalid='true'] { border-color: f.color(feedback-error); border-width: f.token(border, strong); }
+  &:disabled, &[aria-disabled='true'] {
+    background: f.color(surface-disabled);
+    color: f.color(text-secondary);
+    cursor: not-allowed;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

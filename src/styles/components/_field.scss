@@ -1,0 +1,22 @@
+@use '../index' as ui;
+
+.ui-field { @include ui.stack(8); min-width: 0; }
+.ui-field__label { @include ui.typography(label); }
+.ui-input, .ui-textarea {
+  @include ui.control-base;
+  @include ui.control-states;
+  @include ui.transition(border-color, background-color);
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: ui.token(size, input);
+  padding: ui.space(12);
+  &::placeholder { color: ui.color(text-secondary); opacity: 1; }
+}
+.ui-textarea { min-height: ui.token(size, textarea); resize: vertical; }
+.ui-field__hint { @include ui.typography(caption); color: ui.color(text-secondary); }
+.ui-field__error {
+  @include ui.typography(caption);
+  font-weight: ui.token(weight, semibold);
+  color: ui.color(feedback-error);
+}

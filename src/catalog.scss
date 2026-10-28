@@ -1,0 +1,68 @@
+// Catalog presentation only; never part of the library's main.scss.
+@use './styles' as ui;
+
+.catalog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: ui.space(20);
+  padding-block: ui.space(20);
+  border-bottom: ui.token(border, thin) solid ui.color(border-default);
+  nav { display: flex; flex-wrap: wrap; gap: ui.space(24); }
+  nav a { @include ui.typography(button); padding-block: ui.space(12); text-decoration: none; }
+  nav a:hover { text-decoration: underline; text-underline-offset: ui.space(4); }
+}
+.catalog-brand { display: flex; align-items: baseline; gap: ui.space(8); font: 900 24px/1.25 var(--ui-font-display); letter-spacing: -.03em; text-decoration: none; }
+.catalog-brand span { background: ui.color(action-primary); padding-inline: ui.space(4); }
+.catalog-version { display: none; @include ui.from(tablet) { display: block; } }
+.catalog-intro {
+  @include ui.stack(32);
+  h1 { max-width: 100%; }
+}
+.catalog-intro-bottom { @include ui.stack(24); @include ui.from(desktop) { flex-direction: row; justify-content: space-between; align-items: end; } }
+.catalog-intro-bottom .ui-body { max-width: 52ch; }
+.catalog-section { border-top: ui.token(border, thin) solid ui.color(border-default); scroll-margin-top: ui.space(24); }
+.catalog-section-title { @include ui.stack(24); margin-bottom: ui.space(40); }
+.catalog-palette { display: grid; @include ui.from(tablet) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.catalog-swatch {
+  @include ui.stack(48);
+  justify-content: space-between;
+  min-height: 200px;
+  padding: ui.space(24);
+  border: ui.token(border, thin) solid ui.color(border-default);
+  &--paper { background: ui.color(paper); }
+  &--ink { background: ui.color(ink); color: ui.color(paper); }
+  &--lime { background: ui.color(lime); }
+}
+.catalog-semantic { display: flex; flex-wrap: wrap; gap: ui.space(24); margin-top: ui.space(24); }
+.catalog-semantic-item { display: flex; align-items: center; gap: ui.space(8); }
+.catalog-chip { width: ui.space(20); height: ui.space(20); border: ui.token(border, thin) solid ui.color(border-default); }
+@each $name in (muted, line, disabled, error) { .catalog-chip--#{$name} { background: ui.color($name); } }
+.catalog-note { @include ui.stack(12); margin-top: ui.space(40); max-width: 70ch; }
+.catalog-subtitle { margin-top: ui.space(48); margin-bottom: ui.space(24); }
+.catalog-spaces { display: flex; align-items: end; flex-wrap: wrap; gap: ui.space(20); }
+.catalog-space { @include ui.stack(8); align-items: center; width: ui.space(40); }
+.catalog-space-bar { width: ui.space(16); background: ui.color(action-primary); border-inline: ui.token(border, thin) solid ui.color(border-default); }
+@each $step, $value in ui.$spaces { .catalog-space-bar--#{$step} { height: ui.space($step); } }
+.catalog-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: ui.space(32);
+  margin-top: ui.space(48);
+  @include ui.from(desktop) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  p { @include ui.stack(8); }
+  strong { @include ui.typography(h3); }
+}
+.catalog-type-row { display: grid; gap: ui.space(20); padding-block: ui.space(24); border-top: ui.token(border, thin) solid ui.color(border-subtle); @include ui.from(desktop) { grid-template-columns: 240px minmax(0, 1fr); } }
+.catalog-buttons { display: grid; gap: ui.space(32); margin-top: ui.space(32); @include ui.from(desktop) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.catalog-busy { display: flex; align-items: center; flex-wrap: wrap; gap: ui.space(16); margin-top: ui.space(32); }
+.catalog-fields { display: grid; gap: ui.space(32); @include ui.from(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.catalog-grid {
+  span { display: grid; place-items: center; min-height: ui.space(96); background: ui.color(action-primary); border: ui.token(border, thin) solid ui.color(border-default); @include ui.typography(caption); }
+  span:nth-child(n + 2) { display: none; }
+  @include ui.from(tablet) { span:nth-child(-n + 8) { display: grid; } }
+  @include ui.from(desktop) { span:nth-child(n) { display: grid; } }
+}
+.catalog-grid-caption { margin-top: ui.space(24); }
+.catalog-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: ui.space(24); padding-block: ui.space(32); border-top: ui.token(border, thin) solid ui.color(border-default); }

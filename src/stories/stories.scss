@@ -1,0 +1,9 @@
+@use '../styles' as ui;
+.story-stack { @include ui.stack(24); max-width: 100%; }
+.story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: ui.space(24); }
+.story-surface { padding: ui.space(24); background: ui.color(surface-canvas); color: ui.color(text-primary); }
+.story-surface--ink { background: ui.color(surface-inverse); color: ui.color(text-inverse); --ui-focus-ring: var(--ui-color-paper); }
+.story-surface--lime { background: ui.color(action-primary); }
+.story-control { width: 100%; max-width: 350px; }
+.story-icon { display: flex; align-items: center; gap: ui.space(16); min-height: ui.token(size, touch-min); }
+.story-swatch { padding: ui.space(24); border: ui.token(border, thin) solid ui.color(border-default); }

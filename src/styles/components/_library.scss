@@ -1,0 +1,50 @@
+@use '../index' as ui;
+.ui-logo { display: block; flex-shrink: 0; max-width: 100%; color: ui.color(text-primary); }
+.ui-logo--ink { color: ui.color(text-inverse); }
+.ui-button > svg, .ui-selection > svg { flex: 0 0 auto; }
+.ui-selection {
+  @include ui.control-base; @include ui.typography(body); @include ui.control-states; @include ui.transition(background-color, transform);
+  width: 100%; min-height: ui.space(72); padding: ui.space(16); display: flex; align-items: center; justify-content: space-between; gap: ui.space(16); font-weight: ui.token(weight, bold); text-align: start; cursor: pointer;
+  &:hover:not(:disabled), &:active:not(:disabled) { background: ui.color(surface-disabled); }
+  &:active:not(:disabled) { transform: translateY(1px); }
+  &[aria-pressed='true'] { background: ui.color(action-primary); box-shadow: inset 0 0 0 ui.token(border, thin) ui.color(border-default); }
+}
+.ui-detail { @include ui.stack(20); padding: ui.space(24); border: ui.token(border, thin) solid ui.color(border-default); min-width: 0;
+  ol { @include ui.stack(12); padding: ui.space(20) 0 0; border-top: ui.token(border, thin) solid ui.color(border-subtle); list-style: none; counter-reset: detail; @include ui.typography(button); }
+  li { counter-increment: detail; &::before { content: '0' counter(detail) ' / '; } }
+  &__outcome { @include ui.stack(8); background: ui.color(action-primary); padding: ui.space(16); }
+}
+.ui-selector { display: none; gap: ui.space(24); grid-template-columns: 3fr 5fr; &__options { @include ui.stack(8); } @include ui.from(desktop) { display: grid; } }
+.ui-selector-mobile { @include ui.stack(8); @include ui.from(desktop) { display: none; } }
+.ui-accordion {
+  > h3 { margin: 0; }
+  button { @include ui.control-base; @include ui.typography(control); @include ui.control-states; @include ui.transition(background-color); font-weight: ui.token(weight, bold); cursor: pointer; width: 100%; min-height: ui.space(64); padding: ui.space(16); display: flex; justify-content: space-between; gap: ui.space(16); text-align: start;
+    &[aria-expanded='true'] { background: ui.color(action-primary); } > svg { flex-shrink: 0; }
+  }
+  &__body:not([hidden]) { padding: ui.space(20); }
+  &__body > .ui-detail { border: 0; padding: 0; }
+}
+.ui-faq { @include ui.stack(8); }
+.ui-step, .ui-format, .ui-work { @include ui.stack(20); min-width: 0; }
+.ui-step__number { @include ui.typography(h3); align-self: flex-start; background: ui.color(action-primary); padding: ui.space(12); }
+.ui-step > h3 { border-top: ui.token(border, thin) solid ui.color(border-subtle); padding-top: ui.space(20); }
+.ui-format { padding: ui.space(20); border: ui.token(border, thin) solid ui.color(border-default); }
+.ui-work { gap: ui.space(16); img { width: 100%; aspect-ratio: 660 / 320; object-fit: cover; } &--featured img { aspect-ratio: 660 / 360; } a { align-self: flex-start; } }
+.ui-header { background: ui.color(surface-canvas); padding-block: ui.space(12);
+  &__inner { display: flex; align-items: center; justify-content: space-between; gap: ui.space(16); }
+  .ui-logo { width: 130px; height: auto; @include ui.from(tablet) { width: 152px; } }
+  &__desktop { display: none; @include ui.from(desktop) { display: flex; align-items: center; gap: ui.space(16); } }
+  &__toggle { @include ui.from(desktop) { display: none; } }
+  [aria-current] { text-decoration: underline; text-underline-offset: ui.space(4); }
+}
+.ui-menu { position: fixed; inset: 0; width: 100%; max-width: none; max-height: none; height: 100dvh; margin: 0; border: 0; padding: ui.space(20); color: ui.color(text-primary); background: ui.color(surface-canvas);
+  @include ui.from(tablet) { padding: ui.space(32); }
+  > button { width: 100%; margin-bottom: ui.space(8); }
+  nav { @include ui.stack(8); }
+  &::backdrop { background: ui.color(surface-canvas); }
+}
+.ui-brief { @include ui.stack(20); padding: ui.space(20); border: ui.token(border, strong) solid ui.color(border-default); background: ui.color(surface-canvas); width: 100%; max-width: 704px;
+  @include ui.from(tablet) { padding: ui.space(32); }
+  @include ui.from(desktop) { max-width: 660px; }
+  &__result { @include ui.stack(20); outline: none; }
+}

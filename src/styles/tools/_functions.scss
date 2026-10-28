@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use '../tokens/maps' as t;
+
+// Strict access catches misspelled design tokens during compilation.
+@function lookup($map, $key, $group) {
+  @if meta.type-of($key) == 'color' { $key: '' + $key; }
+  @if not map.has-key($map, $key) {
+    @error 'Unknown #{$group} token `#{$key}`. Available: #{map.keys($map)}';
+  }
+  @return map.get($map, $key);
+}
+
+@function color($name) {
+  @if meta.type-of($name) == 'color' { $name: '' + $name; }
+  @if map.has-key(t.$roles, $name) { @return var(--ui-#{$name}); }
+  $value: lookup(t.$colors, $name, 'color');
+  @return var(--ui-color-#{$name});
+}
+
+@function space($step) {
+  $value: lookup(t.$spaces, $step, 'space');
+  @return var(--ui-space-#{$step});
+}
+
+@function token($group, $name) {
+  @if meta.type-of($name) == 'color' { $name: '' + $name; }
+  $groups: (border: t.$borders, radius: t.$radii, size: t.$sizes, motion: t.$motion, font: t.$fonts, weight: t.$weights);
+  $values: lookup($groups, $group, 'group');
+  $value: lookup($values, $name, $group);
+  @return var(--ui-#{$group}-#{$name});
+}
+
+@function breakpoint($name) { @return lookup(t.$breakpoints, $name, 'breakpoint'); }

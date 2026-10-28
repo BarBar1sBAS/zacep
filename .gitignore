@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+test-results/
+.playwright-mcp/
+storybook-static/
+coverage/
+
+.env
+.env.*
+!.env.example

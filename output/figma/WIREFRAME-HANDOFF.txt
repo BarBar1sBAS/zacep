@@ -1,0 +1,10 @@
+Figma: https://www.figma.com/design/33uZlvdpstuANY0xc0tvUf
+Prototype: https://www.figma.com/proto/33uZlvdpstuANY0xc0tvUf?node-id=4-1813&starting-point-node-id=4%3A1813
+Neutral wireframe applied to all pages, 68 components, 25 sets, 426 reactions.
+No text, images, non-grayscale paints, variables or text styles remain.
+All original frame and component dimensions preserved. Mobile click targets >=44 px.
+File rename was not confirmed: file still displayed as ЗАЦЕП · Сайт. Native Figma UI input failed (noWindowsAvailable and stale accessibility state).
+
+Visually reviewed all four principal frames and form variants.
+Browser-tested mobile menu, services and roles accordions, FAQ, form initial/error/filled/success, case opening and return.
+Source brandbook and local prototype were not modified.

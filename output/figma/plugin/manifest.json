@@ -1,0 +1,1 @@
+{"name": "ЗАЦЕП · Сборка макета", "id": "zacep-design-local-20261021", "api": "1.0.0", "main": "code.js", "ui": "ui.html", "editorType": ["figma"], "documentAccess": "dynamic-page", "networkAccess": {"allowedDomains": ["http://localhost:8795"], "reasoning": "Load project visuals and save review images to the local project receiver."}}

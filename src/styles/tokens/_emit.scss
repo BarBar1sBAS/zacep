@@ -1,0 +1,30 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'maps' as t;
+@use '../tools/mixins' as m;
+
+@mixin responsive-values($size) {
+  @each $name, $style in t.$type {
+    $pair: map.get($style, $size);
+    --ui-type-#{$name}-size: #{list.nth($pair, 1)};
+    --ui-type-#{$name}-line: #{list.nth($pair, 2)};
+  }
+  @each $name, $value in map.get(t.$layouts, $size) { --ui-layout-#{$name}: #{$value}; }
+}
+
+:root {
+  @each $name, $value in t.$colors { --ui-color-#{$name}: #{$value}; }
+  @each $name, $primitive in t.$roles { --ui-#{$name}: var(--ui-color-#{$primitive}); }
+  @each $name, $value in t.$spaces { --ui-space-#{$name}: #{$value}; }
+  @each $group, $values in (border: t.$borders, radius: t.$radii, size: t.$sizes, motion: t.$motion, font: t.$fonts, weight: t.$weights) {
+    @each $name, $value in $values { --ui-#{$group}-#{$name}: #{$value}; }
+  }
+  @each $name, $style in t.$type {
+    --ui-type-#{$name}-family: var(--ui-font-#{map.get($style, family)});
+    --ui-type-#{$name}-weight: var(--ui-weight-#{map.get($style, weight)});
+    --ui-type-#{$name}-tracking: #{map.get($style, tracking)};
+  }
+  @include responsive-values(mobile);
+  @include m.from(tablet) { @include responsive-values(tablet); }
+  @include m.from(desktop) { @include responsive-values(desktop); }
+}

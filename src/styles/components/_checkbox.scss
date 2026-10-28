@@ -1,0 +1,45 @@
+@use '../index' as ui;
+
+.ui-checkbox {
+  @include ui.typography(caption);
+  display: flex;
+  align-items: center;
+  gap: ui.space(12);
+  min-height: ui.token(size, touch-min);
+  cursor: pointer;
+  &__control {
+    @include ui.control-base;
+    @include ui.control-states;
+    @include ui.transition(background-color, border-color);
+    appearance: none;
+    flex: 0 0 auto;
+    position: relative;
+    width: ui.token(size, checkbox);
+    height: ui.token(size, checkbox);
+    margin: calc((ui.token(size, touch-min) - ui.token(size, checkbox)) / 2);
+    margin-inline-end: 0;
+    cursor: pointer;
+    &:checked { background: ui.color(action-primary); }
+    &:checked::after {
+      content: '';
+      position: absolute;
+      inset: 20% 32% 30%;
+      border: solid currentColor;
+      border-width: 0 ui.token(border, strong) ui.token(border, strong) 0;
+      transform: rotate(45deg);
+    }
+    &:disabled { background: ui.color(surface-disabled); }
+  }
+  &:has(:disabled) { color: ui.color(text-secondary); cursor: not-allowed; }
+  &:has([aria-invalid='true']) { color: ui.color(feedback-error); }
+}
+
+// The exported control and its stories use the same UI kit vector.
+.ui-checkbox__mark {
+  position: relative;
+  flex: 0 0 auto;
+  line-height: 0;
+  > svg { position: absolute; width: ui.token(size, checkbox); height: ui.token(size, checkbox); inset-inline-start: calc((ui.token(size, touch-min) - ui.token(size, checkbox)) / 2); top: calc((ui.token(size, touch-min) - ui.token(size, checkbox)) / 2); pointer-events: none; visibility: hidden; }
+  &:has(:checked) > svg { visibility: visible; }
+  .ui-checkbox__control:checked::after { content: none; }
+}

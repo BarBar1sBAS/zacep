@@ -1,0 +1,48 @@
+{
+  "file": "https://www.figma.com/design/33uZlvdpstuANY0xc0tvUf",
+  "pages": {
+    "product": "131:2406",
+    "uiKit": "133:2407",
+    "identity": "133:2408"
+  },
+  "originalPagesUnchanged": true,
+  "issues": {
+    "overflow": 0,
+    "badTargets": 0,
+    "oldInstances": 0,
+    "touch": 0
+  },
+  "visualReview": {
+    "mainScreens": 6,
+    "componentSets": 27,
+    "identityBoards": 4,
+    "foundations": true,
+    "usageExamples": true
+  },
+  "responsiveWidths": [
+    360,
+    390,
+    600,
+    768,
+    900,
+    1024,
+    1200,
+    1440
+  ],
+  "prototypeRuntimeChecked": [
+    "service accordion open and close",
+    "role collapse and designer expansion",
+    "FAQ expansion",
+    "empty form validation",
+    "filled form",
+    "submit to success",
+    "failure retry to success",
+    "featured card to case",
+    "case return to works",
+    "mobile menu to services",
+    "desktop service selector SMM to Reels",
+    "featured case text button to case after fix"
+  ],
+  "formIsSimulation": true,
+  "contactAndLegalApprovalNotesInFigma": true
+}
