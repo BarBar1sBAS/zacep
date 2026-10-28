@@ -11,7 +11,7 @@ OUT = ROOT / 'output/pdf/03_zacep-wireframe.pdf'
 SHOTS = ROOT / 'tmp/pdfs/zacep-prototype'
 FONTS = ROOT / 'tmp/pdfs/fonts'
 W, H = 960, 540
-INK, PAPER, LIME, GREY = HexColor('#0A0A0A'), HexColor('#F3F0E8'), HexColor('#C8FF00'), HexColor('#77776F')
+INK, PAPER, LIME, GREY = HexColor('#1E1E1E'), HexColor('#F3F0E8'), HexColor('#DCFE38'), HexColor('#77776F')
 
 pdfmetrics.registerFont(TTFont('Unbounded', str(FONTS/'Unbounded-800.ttf')))
 pdfmetrics.registerFont(TTFont('UnboundedBlack', str(FONTS/'Unbounded-900.ttf')))

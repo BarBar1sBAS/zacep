@@ -98,7 +98,7 @@ import './styles/main.scss'
 
 | Группа | Ключи / значения | CSS |
 | --- | --- | --- |
-| `$colors` | paper `#F3F0E8`, ink `#0A0A0A`, lime `#C8FF00`, muted `#54534F`, line `#BAB8B0`, disabled `#DEDDD6`, error `#A32920` | `--ui-color-{name}` |
+| `$colors` | paper `#F3F0E8`, ink `#1E1E1E`, lime `#DCFE38`, muted `#54534F`, line `#BAB8B0`, disabled `#DEDDD6`, error `#A32920` | `--ui-color-{name}` |
 | `$roles` | surface-canvas, surface-inverse, surface-disabled, text-primary, text-secondary, text-inverse, action-primary, border-default, border-subtle, feedback-error, focus-ring | `--ui-{role}` |
 | `$spaces` | 0, 4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 72, 80, 96 px | `--ui-space-{step}` |
 | `$borders` | thin: 1px, strong: 2px | `--ui-border-{name}` |
@@ -190,6 +190,8 @@ import './styles/main.scss'
 Состояния используют нативные псевдоклассы и ARIA. Заполненное поле использует реальное значение, checkbox — `:checked`. Для недоступных кнопок используйте `disabled`; `aria-disabled` только объявляет состояние, блокировку действий и клавиатурную семантику обеспечивает потребитель. При `aria-busy="true"` задавайте также `disabled`, сохраняйте читаемую подпись «Отправляем…». CSS не отправляет формы, не выполняет валидацию, не управляет фокусом и не реализует блокировку событий у ссылок. Сообщения об ошибках связывайте с контролом через `aria-describedby`.
 
 ## Источник и отличия
+
+Палитра сайта и локальных исходников обновлена 28.10.2026: Lime `#DCFE38`, Ink `#1E1E1E`. Сам файл Figma в рамках этого обновления не изменялся.
 
 [Figma: Foundations / 05 · UI Kit](https://www.figma.com/design/33uZlvdpstuANY0xc0tvUf?node-id=134-2445). Foundations был просмотрен через Computer Use. MCP-чтение недоступно из-за лимита тарифа; сохранённые исходники `output/figma/product/base.js` и `layouts.js` дают точные значения и состояния. Полная повторная инспекция каждого варианта в актуальном файле не выполнена.
 

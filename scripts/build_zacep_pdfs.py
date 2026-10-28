@@ -14,8 +14,8 @@ FONTS = ROOT / 'tmp' / 'pdfs' / 'fonts'
 OUT.mkdir(parents=True, exist_ok=True)
 
 W, H = 960, 540
-LIME = HexColor('#C8FF00')
-INK = HexColor('#0A0A0A')
+LIME = HexColor('#DCFE38')
+INK = HexColor('#1E1E1E')
 PAPER = HexColor('#F3F0E8')
 WHITE = HexColor('#FFFFFF')
 GRAY = HexColor('#A6A6A6')
@@ -246,7 +246,7 @@ def create_brandbook_pdf():
     c.showPage()
     # 11 colors
     page_base(c,11,'Цвет',False); title(c,'Палитра','ТРИ ЦВЕТА. НОЛЬ СЛУЧАЙНОСТЕЙ.')
-    colors=[('ЗАЦЕП LIME','#C8FF00',LIME,INK),('INK','#0A0A0A',INK,PAPER),('PAPER','#F3F0E8',PAPER,INK)]
+    colors=[('ЗАЦЕП LIME','#DCFE38',LIME,INK),('INK','#1E1E1E',INK,PAPER),('PAPER','#F3F0E8',PAPER,INK)]
     for i,(n,hx,col,fg) in enumerate(colors):
         x=48+i*288; rect(c,x,130,264,230,col,INK,2); txt(c,n,x+18,318,11,'M700',fg); txt(c,hx,x+18,158,18,'U800',fg)
     txt(c,'Основные контрастные пары: INK/LIME, PAPER/INK, LIME/INK. Мелкий текст не ставить лаймом на светлом фоне.',48,86,10,'M600',INK)
