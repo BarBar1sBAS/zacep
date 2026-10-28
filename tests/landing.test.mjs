@@ -12,7 +12,7 @@ for (const width of [360, 390, 600, 768, 1024, 1440]) test(`Landing and case wor
     const errors = [], submissions = []
     page.on('pageerror', error => errors.push(error.message))
     page.on('request', request => { if (request.method() === 'POST') submissions.push(request.url()) })
-    await page.goto(base)
+    await page.goto(`${base}/`)
     await page.evaluate(() => document.fonts.ready)
     await page.keyboard.press('Tab')
     assert.equal(await page.getByRole('link', { name: 'Перейти к содержанию' }).evaluate(el => el === document.activeElement), true)
@@ -56,7 +56,7 @@ for (const width of [360, 390, 600, 768, 1024, 1440]) test(`Landing and case wor
     assert.equal(await form.getByText('Заявка принята').count(), 0)
     assert.deepEqual(submissions, [])
     await page.getByRole('link', { name: 'Посмотреть кейс' }).click()
-    await page.waitForURL('**/case-template')
+    await page.waitForURL('**/case-template/')
     assert.equal(await page.getByRole('heading', { level: 1 }).textContent(), 'Серия, котораядержит внимание.')
     await page.getByRole('link', { name: 'Вернуться к работам' }).click()
     await page.waitForURL('**/#work')
