@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { Logo } from './Logo'
 import { Button } from './Controls'
 export type NavItem = { label: string; href: string }
-export const navigation: NavItem[] = [{ label: 'Услуги', href: '#services' }, { label: 'Работы', href: '#work' }, { label: 'Команда', href: '#team' }, { label: 'Заявка', href: '#brief' }]
+export const navigation: NavItem[] = [{ label: 'Услуги', href: '#services' }, { label: 'Команда', href: '#team' }, { label: 'Заявка', href: '#brief' }]
 export type MobileMenuProps = { open: boolean; onClose: () => void; items?: NavItem[]; id?: string }
 export function MobileMenu({ open, onClose, items = navigation, id }: MobileMenuProps) {
   const dialog = useRef<HTMLDialogElement>(null)

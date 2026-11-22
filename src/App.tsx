@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode } from 'react'
 import {
   BriefForm, FAQ, FormatCard, Header, Icon, Logo, RoleSelector,
-  ServiceSelector, Step, WorkCard, formats, navigation, operatorNote, steps,
+  ServiceSelector, Step, formats, navigation, operatorNote, steps,
 } from './components'
 
 const base = import.meta.env.BASE_URL
@@ -53,32 +53,23 @@ function Home() {
       <ServiceSelector />
     </Section>
 
-    <Section id="work" label="02 / РАБОТЫ" title={<>Показываем,<br />как может цеплять.</>}>
-      <p className="ui-control ui-text-secondary">Демонстрационные концепции. Они показывают подход к визуалу и содержанию.</p>
-      <WorkCard className="site-work-featured" variant="featured" title="Серия, которая держит внимание" image={`${base}assets/editing-collage.png`} imageAlt="Камера, наушники и монтажная лента в графике контентной серии" tag="01 / ДЕМО-КЕЙС · REELS" href={`${base}case-template/`} />
-      <div className="site-work-grid">
-        <WorkCard variant="content" title="Контент как узнаваемая система" image={`${base}assets/reels-frame.png`} imageAlt="Камера и вертикальный кадр в фирменной графике" tag="02 / ДЕМО-НАПРАВЛЕНИЕ · SMM">Рубрики, графика и единый ритм публикаций.</WorkCard>
-        <WorkCard variant="launch" title="Один запуск. Один ясный маршрут." image={`${base}assets/hero-collage.png`} imageAlt="Смартфон и кадры кампании в фирменном коллаже" tag="03 / ДЕМО-НАПРАВЛЕНИЕ · КАМПАНИЯ">Связь сообщения, креатива и точки обращения.</WorkCard>
-      </div>
-    </Section>
-
-    <Section id="process" label="03 / ПРОЦЕСС" title="Понятно, что дальше.">
+    <Section id="process" label="02 / ПРОЦЕСС" title="Понятно, что дальше.">
       <div className="site-four-grid">{steps.map(([title, body], i) => <Step key={title} number={`0${i + 1}`} title={title}>{body}</Step>)}</div>
       <h3 className="site-subheading">Формат под вашу задачу.</h3>
       <div className="site-format-grid">{formats.map(([title, body]) => <FormatCard key={title} title={title}>{body}</FormatCard>)}</div>
     </Section>
 
-    <Section id="team" label="04 / КОМАНДА" title={<>За проектом<br />стоят роли.</>}>
+    <Section id="team" label="03 / КОМАНДА" title={<>За проектом<br />стоят роли.</>}>
       <p className="site-lead">Одна задача. Общий контекст. Понятная ответственность.</p>
       <p className="ui-control ui-text-secondary">{operatorNote}</p>
       <RoleSelector />
     </Section>
 
-    <Section id="faq" label="05 / ВОПРОСЫ" title="Коротко о важном."><FAQ /></Section>
+    <Section id="faq" label="04 / ВОПРОСЫ" title="Коротко о важном."><FAQ /></Section>
 
     <section id="brief" className="site-section site-section--lime">
       <div className="ui-container site-brief">
-        <div className="site-heading"><p className="ui-label">06 / ЗАЯВКА</p><h2 className="ui-h2">Найдём,<br />чем зацепить.</h2><p>Расскажите о задаче. Уточним детали и предложим подходящий формат.</p><p className="ui-caption">* Обязательные поля</p></div>
+        <div className="site-heading"><p className="ui-label">05 / ЗАЯВКА</p><h2 className="ui-h2">Найдём,<br />чем зацепить.</h2><p>Расскажите о задаче. Уточним детали и предложим подходящий формат.</p><p className="ui-caption">* Обязательные поля</p></div>
         <BriefForm submissionDisabled />
       </div>
     </section>
@@ -88,7 +79,7 @@ function Home() {
 function Case() {
   return <>
     <section className="site-case-intro ui-container site-stack" aria-labelledby="case-title">
-      <Action href={`${base}#work`} secondary>Вернуться к работам</Action>
+      <Action href={base} secondary>На главную</Action>
       <p className="ui-label">ДЕМО-КЕЙС / REELS И КОНТЕНТ</p>
       <h1 id="case-title" className="ui-h1">Серия, которая<br />держит внимание.</h1>
       <p>Демонстрационная концепция: один визуальный приём объединяет разные сюжеты.</p>

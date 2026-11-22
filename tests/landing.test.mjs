@@ -19,6 +19,7 @@ for (const width of [360, 390, 600, 768, 1024, 1440]) test(`Landing and case wor
     await page.keyboard.press('Enter')
     assert.equal(await page.locator('#main').evaluate(el => el === document.activeElement), true)
 
+    assert.equal(await page.locator('#work, .site-work-featured, .site-work-grid, a[href*="case-template"], a[href$="#work"]').count(), 0)
     const services = page.locator('#services')
     const team = page.locator('#team')
     const serviceNames = await services.locator('button').allTextContents()
@@ -68,12 +69,10 @@ for (const width of [360, 390, 600, 768, 1024, 1440]) test(`Landing and case wor
     assert.equal(await form.getByLabel('Задача *', { exact: true }).inputValue(), 'Нужна серия роликов')
     assert.equal(await form.getByText('Заявка принята').count(), 0)
     assert.deepEqual(submissions, [])
-    await page.getByRole('link', { name: 'Посмотреть кейс' }).click()
-    await page.waitForURL('**/case-template/')
+    await page.goto(`${base}/case-template/`)
     assert.equal(await page.getByRole('heading', { level: 1 }).textContent(), 'Серия, котораядержит внимание.')
-    await page.getByRole('link', { name: 'Вернуться к работам' }).click()
-    await page.waitForURL('**/#work')
-    await page.waitForFunction(() => Math.abs(document.getElementById('work').getBoundingClientRect().top) < 40)
+    await page.getByRole('link', { name: 'На главную', exact: true }).click()
+    await page.waitForURL(`${base}/`)
 
     await mkdir('test-results/landing', { recursive: true })
     for (const path of ['/', '/case-template']) {
