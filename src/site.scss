@@ -37,12 +37,23 @@
   article { @include ui.stack(12); border-top: ui.token(border, thin) solid ui.color(border-subtle); padding-top: ui.space(24); }
 }
 .site-problems { @include ui.from(desktop) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.site-work-grid, .site-four-grid { display: grid; gap: var(--ui-layout-gap); grid-template-columns: minmax(0, 1fr); }
+.site-work-grid, .site-four-grid, .site-format-grid { display: grid; gap: var(--ui-layout-gap); grid-template-columns: minmax(0, 1fr); }
 .site-work-grid { @include ui.from(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .site-work-featured img { height: 300px; aspect-ratio: auto; @include ui.from(tablet) { height: 400px; } @include ui.from(desktop) { height: 360px; } }
 .site-four-grid {
   @include ui.from(tablet) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @include ui.from(desktop) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.site-format-grid {
+  > :first-child { background: ui.color(action-primary); }
+  @include ui.from(tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    > :first-child { grid-column: 1 / -1; }
+  }
+  @include ui.from(desktop) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    > :first-child { grid-column: auto; }
+  }
 }
 .site-brief {
   display: grid; gap: ui.space(32);

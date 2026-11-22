@@ -21,10 +21,8 @@ export const Service1: Story = { args: { defaultSelected: 0 } }
 export const Service2: Story = { args: { defaultSelected: 1 } }
 export const Service3: Story = { args: { defaultSelected: 2 } }
 export const Service4: Story = { args: { defaultSelected: 3 } }
-export const Service5: Story = { args: { defaultSelected: 4 } }
 export const Role1: Story = { render: () => <RoleSelector defaultSelected={0} /> }
 export const Role2: Story = { render: () => <RoleSelector defaultSelected={1} /> }
 export const Role3: Story = { render: () => <RoleSelector defaultSelected={2} /> }
 export const Role4: Story = { render: () => <RoleSelector defaultSelected={3} /> }
 export const Role5: Story = { render: () => <RoleSelector defaultSelected={4} /> }
-export const Role6: Story = { render: () => <RoleSelector defaultSelected={5} /> }

@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode } from 'react'
 import {
   BriefForm, FAQ, FormatCard, Header, Icon, Logo, RoleSelector,
-  ServiceSelector, Step, WorkCard, formats, navigation, steps,
+  ServiceSelector, Step, WorkCard, formats, navigation, operatorNote, steps,
 } from './components'
 
 const base = import.meta.env.BASE_URL
@@ -34,7 +34,7 @@ function Home() {
         <div className="site-hero__offer">
           <p className="ui-label">ЗАЦЕП / КОНТЕНТ-АГЕНТСТВО</p>
           <h1 id="hero-title" className="ui-h1">Контент,<br />который цепляет.</h1>
-          <p className="site-lead">Стратегия, Reels, дизайн и таргет в одной системе продвижения.</p>
+          <p className="site-lead">Создаём короткие видео, ведём соцсети и делаем дизайн по единой стратегии.</p>
           <Action />
         </div>
         <img className="site-hero__image" src={`${base}assets/hero-collage.png`} alt="Коллаж о создании контента: смартфон, плёнка и монтажная лента" fetchPriority="high" />
@@ -42,13 +42,14 @@ function Home() {
       <div className="site-geography ui-label"><span>НИЖНИЙ НОВГОРОД</span><span>РАБОТАЕМ ПО ВСЕЙ РОССИИ</span></div>
     </section>
 
-    <Section id="services" label="01 / УСЛУГИ" title={<>Когда контент есть.<br />А системы нет.</>}>
+    <Section id="services" label="01 / УСЛУГИ" title={<>Когда задачи есть.<br />А системы нет.</>}>
       <div className="site-problems">{[
-        ['Соцсети рывками', 'Нет единого ритма публикаций.'],
-        ['Визуал распадается', 'Бренд выглядит по-разному.'],
-        ['Реклама отдельно', 'Контент и продвижение не связаны.'],
+        ['Исследование', 'Маркетолог изучает рынок, аудиторию, конкурентов и ваш продукт.'],
+        ['Смыслы и стратегия', 'На основе исследования маркетолог формулирует предложение, ключевые сообщения и стратегию контента.'],
+        ['Производство контента', 'Команда превращает стратегию в сценарии, видео, дизайн и публикации.'],
       ].map(([title, body]) => <article key={title}><h3 className="site-subtitle">{title}</h3><p className="ui-control ui-text-secondary">{body}</p></article>)}</div>
       <h3 className="site-subheading">Собираем в одну систему.</h3>
+      <p className="ui-control ui-text-secondary">Вам не нужно координировать фрилансеров по отдельности. Маркетолог, сценаристы и монтажёр работают по одной стратегии.</p>
       <ServiceSelector />
     </Section>
 
@@ -64,12 +65,12 @@ function Home() {
     <Section id="process" label="03 / ПРОЦЕСС" title="Понятно, что дальше.">
       <div className="site-four-grid">{steps.map(([title, body], i) => <Step key={title} number={`0${i + 1}`} title={title}>{body}</Step>)}</div>
       <h3 className="site-subheading">Формат под вашу задачу.</h3>
-      <div className="site-four-grid">{formats.map(([title, body]) => <FormatCard key={title} title={title}>{body}</FormatCard>)}</div>
+      <div className="site-format-grid">{formats.map(([title, body]) => <FormatCard key={title} title={title}>{body}</FormatCard>)}</div>
     </Section>
 
     <Section id="team" label="04 / КОМАНДА" title={<>За проектом<br />стоят роли.</>}>
       <p className="site-lead">Одна задача. Общий контекст. Понятная ответственность.</p>
-      <p className="ui-control ui-text-secondary">Это функции в проекте. Состав команды зависит от задачи.</p>
+      <p className="ui-control ui-text-secondary">{operatorNote}</p>
       <RoleSelector />
     </Section>
 

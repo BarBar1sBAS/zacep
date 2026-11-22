@@ -14,8 +14,6 @@ export const Service3Closed: Story = { args: { title: services[2].name, defaultO
 export const Service3Open: Story = { args: { title: services[2].name, defaultOpen: true, children: <DetailPanel item={services[2]} /> } }
 export const Service4Closed: Story = { args: { title: services[3].name, defaultOpen: false, children: <DetailPanel item={services[3]} /> } }
 export const Service4Open: Story = { args: { title: services[3].name, defaultOpen: true, children: <DetailPanel item={services[3]} /> } }
-export const Service5Closed: Story = { args: { title: services[4].name, defaultOpen: false, children: <DetailPanel item={services[4]} /> } }
-export const Service5Open: Story = { args: { title: services[4].name, defaultOpen: true, children: <DetailPanel item={services[4]} /> } }
 export const Role1Closed: Story = { args: { title: roles[0].name, defaultOpen: false, children: <DetailPanel item={roles[0]} /> } }
 export const Role1Open: Story = { args: { title: roles[0].name, defaultOpen: true, children: <DetailPanel item={roles[0]} /> } }
 export const Role2Closed: Story = { args: { title: roles[1].name, defaultOpen: false, children: <DetailPanel item={roles[1]} /> } }
@@ -26,8 +24,6 @@ export const Role4Closed: Story = { args: { title: roles[3].name, defaultOpen: f
 export const Role4Open: Story = { args: { title: roles[3].name, defaultOpen: true, children: <DetailPanel item={roles[3]} /> } }
 export const Role5Closed: Story = { args: { title: roles[4].name, defaultOpen: false, children: <DetailPanel item={roles[4]} /> } }
 export const Role5Open: Story = { args: { title: roles[4].name, defaultOpen: true, children: <DetailPanel item={roles[4]} /> } }
-export const Role6Closed: Story = { args: { title: roles[5].name, defaultOpen: false, children: <DetailPanel item={roles[5]} /> } }
-export const Role6Open: Story = { args: { title: roles[5].name, defaultOpen: true, children: <DetailPanel item={roles[5]} /> } }
 export const FAQ1Closed: Story = { args: { title: faq[0][0], children: <p className="ui-control">{faq[0][1]}</p>, defaultOpen: false } }
 export const FAQ1Open: Story = { args: { title: faq[0][0], children: <p className="ui-control">{faq[0][1]}</p>, defaultOpen: true } }
 export const FAQ2Closed: Story = { args: { title: faq[1][0], children: <p className="ui-control">{faq[1][1]}</p>, defaultOpen: false } }
